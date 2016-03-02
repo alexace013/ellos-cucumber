@@ -13,11 +13,11 @@ import utils.WebElementsActions;
 public class LoginPage extends Page {
 
     private final static Logger log = Logger.getLogger(ClassNameUtil.getCurrentClassName());
-    private static final String LOGIN_PAGE = PropertyLoader.loadProperty("registration.url");
+    private static final String REG_PAGE = PropertyLoader.loadProperty("registration.url");
 
     public LoginPage(WebDriverWrapper driverWrapper) {
 
-        super(driverWrapper, LOGIN_PAGE);
+        super(driverWrapper, REG_PAGE);
 
     }
 

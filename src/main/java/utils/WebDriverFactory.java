@@ -5,11 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -150,7 +146,7 @@ public class WebDriverFactory {
 
         // In case there is no Hub
         if (hubUrl == null) {
-            log.error("HUB_URL == null!\n");
+            log.error("HUBURL == null!\n");
             Assert.fail("vse propalo!");
             return null;
         } else {
@@ -179,33 +175,6 @@ public class WebDriverFactory {
             capabilities.setPlatform(Platform.ANY);
         }
 
-    }
-
-    //old version
-    public static WebDriverWrapper initDriver(){
-        WebDriverWrapper driverWripper = null;
-
-        if(browserName.equals(FIREFOX)){
-            driverWripper = new WebDriverWrapper( new FirefoxDriver());
-        }else if(browserName.equals(PHANTOMJS)){
-            File phantomjs = Phanbedder.unpack();
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
-            driverWripper = new WebDriverWrapper( new PhantomJSDriver(caps));
-
-        } else if(browserName.equals(CHROME)){
-            ChromeOptions options = new ChromeOptions();
-            driverWripper = new WebDriverWrapper( new ChromeDriver(options));
-        }
-
-        else {
-            org.junit.Assert.fail("invalid driver name");
-        }
-
-        driverWripper.manage().deleteAllCookies();
-        driverWripper.manage().window().maximize();
-
-        return driverWripper;
     }
 
 }

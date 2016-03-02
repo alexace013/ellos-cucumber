@@ -21,9 +21,9 @@ public class Fixture {
     public static Ellos ellos;
 
     @BeforeSuite
-    public void setUp() {
+    public void startBrowser() {
 
-        driverWrapper = WebDriverFactory.initDriver();
+        driverWrapper = new WebDriverWrapper(WebDriverFactory.getInstance());
         driverWrapper.manage().timeouts().implicitlyWait(Long.parseLong(impWait), TimeUnit.SECONDS);
 
         try {
@@ -37,11 +37,9 @@ public class Fixture {
     }
 
     @AfterSuite
-    public void tearDown() {
+    public void quitBrowser() {
 
-        if (driverWrapper != null) {
-            driverWrapper.quit();
-        }
+        driverWrapper.quit();
 
         log.info(String.format("tests suite execution completed"));
 

@@ -10,7 +10,7 @@ public class Ellos {
     public ProductPage productPage;
     public CheckoutPage checkoutPage;
     public RegistrationPage registrationPage;
-//    public MyCabinetPage mycabinetPage;
+    public MyCabinetPage mycabinetPage;
 //    public ScreenShotMaker screenShotMaker;
     public ScreenShot screenShot;
 //    public Mock mock;
@@ -21,7 +21,7 @@ public class Ellos {
         loginPage = new LoginPage(driverWrapper);
         productPage = new ProductPage(driverWrapper);
         checkoutPage = new CheckoutPage(driverWrapper);
-//        mycabinetPage = new MyCabinetPage(driverWrapper);
+        mycabinetPage = new MyCabinetPage(driverWrapper);
         registrationPage = new RegistrationPage(driverWrapper);
 //        screenShotMaker = new ScreenShotMaker(driverWrapper);
         screenShot = new ScreenShot(driverWrapper);
