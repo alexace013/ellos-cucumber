@@ -18,7 +18,6 @@ public class CheckoutPage extends Page {
     public CheckoutPage(WebDriverWrapper driverWrapper) {
 
         super(driverWrapper, MAIN_PAGE);
-        openPage();
 
     }
 
